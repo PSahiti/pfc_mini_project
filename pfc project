@@ -1,0 +1,63 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    int choice, qty;
+    float total = 0;
+    char more;
+
+    printf("====================================\n");
+    printf("   ONLINE FOOD ORDERING SYSTEM\n");
+    printf("====================================\n");
+
+    do {
+        printf("\n---- MENU ----\n");
+        printf("1. Pizza        - Rs.250\n");
+        printf("2. Burger       - Rs.120\n");
+        printf("3. Sandwich     - Rs.150\n");
+        printf("4. French Fries - Rs.100\n");
+        printf("5. Exit\n");
+
+        printf("\nEnter your choice: ");
+        scanf("%d", &choice);
+
+        if (choice == 5) {
+            break;
+        }
+
+        printf("Enter quantity: ");
+        scanf("%d", &qty);
+
+        switch (choice) {
+            case 1:
+                total += 250 * qty;
+                printf("Pizza added to cart\n");
+                break;
+            case 2:
+                total += 120 * qty;
+                printf("Burger added to cart\n");
+                break;
+            case 3:
+                total += 150 * qty;
+                printf("Sandwich added to cart\n");
+                break;
+            case 4:
+                total += 100 * qty;
+                printf("French Fries added to cart\n");
+                break;
+            default:
+                printf("Invalid choice!\n");
+        }
+
+        printf("Do you want to order more? (y/n): ");
+        scanf(" %c", &more);
+
+    } while (more == 'y' || more == 'Y');
+
+    printf("\n==============================\n");
+    printf("Total Bill Amount: Rs. %.2f\n", total);
+    printf("Thank you for ordering!\n");
+    printf("==============================\n");
+
+    return 0;
+}
